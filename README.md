@@ -75,5 +75,5 @@ Training and validation processes are written to logfiles during training and ca
 ### Prediction
 
 To predict a dose distribution using a trained model, run ``predict.py -id xyz`` from the console, where xyz is the subjectID for which a prediction should be performed.
-
+To visualize the predicted dose runt ``predict.py -id xyz -v True``.
 
