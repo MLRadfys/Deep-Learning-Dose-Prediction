@@ -64,10 +64,16 @@ To create triplets (2.5D data) as used in our paper, run the ``create_dataset.py
 By running this script, a new folder is created, creating a 2D dataset, and a 2.5D dataset.
 In addition, the script automatically creates csv files used for 5-fold cross validation training.
 
-## Model training
+## Model
+
+### Training
 
 To train the model run the ``python3 train.py`` file. Depending on the configuration file, a single model is trained, or a cross-validation performed, resulting in 5 different models.
 Model checkpoints are saved regulary, but this setting can be changed by modifying the ``CustomSaver.py`` script or building a self-defined checkpoint.
 Training and validation processes are written to logfiles during training and can be examined using Tensorboard and can be examined during model training. For this, type ``tensorboard --logdir logs/fit`` in the console.
+
+### Prediction
+
+To predict a dose distribution using a trained model, run ``predict.py -id xyz`` from the console, where xyz is the subjectID for which a prediction should be performed.
 
 
