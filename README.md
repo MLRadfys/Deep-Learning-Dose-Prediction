@@ -26,9 +26,11 @@ Now all needed packages should have been installed into the virtual environment 
 
 ### Configuration File
 
-All configuration parameters needed for training the model are stored in the ``config.ini`` file located in Training - settings folder.
-Depending on where the training dataset and the cross validation files are stored, adjustments to the file paths are needed.
+All configuration parameters needed for training the model are stored in the ``config.ini`` file located in settings folder.
+**Adjust the path to the dataset and the training/validation split csv file according to your setup.**
 
+For the configuration file, it is possible to either give a folder name or a specific file.
+If a .csv file is given, a single model will be trained. If a folder is given, a cross-validation is run, training 5 different models. The .csv files in the folder should follow the naming convention ``d_split_kx.csv``, where x is a number between 0-4.
 
 ## Preprocessing
 
@@ -57,12 +59,15 @@ The expected folder structure for the 3D data is:
     
     ...
 
-To create triplets as used in our paper, run the ``create_dataset.py`` script contained in the Preprocessing folder using the console:
+To create triplets (2.5D data) as used in our paper, run the ``create_dataset.py`` script using the console:
 ``python3 create_dataset.py -p PATH_TO_3D_DATA``
 By running this script, a new folder is created, creating a 2D dataset, and a 2.5D dataset.
 In addition, the script automatically creates csv files used for 5-fold cross validation training.
 
 ## Model training
 
-To train the model run ``python3 train.py`` in the Training folder.
+To train the model run the ``python3 train.py`` file. Depending on the configuration file, a single model is trained, or a cross-validation performed, resulting in 5 different models.
+Model checkpoints are saved regulary, but this setting can be changed by modifying the ``CustomSaver.py`` script or building a self-defined checkpoint.
+Training and validation processes are written to logfiles during training and can be examined using Tensorboard and can be examined during model training. For this, type ``tensorboard --logdir logs/fit`` in the console.
+
 
