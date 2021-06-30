@@ -12,6 +12,8 @@ The different scripts should be run in the given numerical order.
 
 ## Before you start
 
+### Setup
+
 Clone the repository using Git Bash or the console  ``git clone https://ADRESS_TO_THE_GITHUB_REPOSITORY``. <br>
 
 Create a virtual environment by typing ``virtualenv env_name`` into the console.
@@ -21,6 +23,12 @@ Once the virtual environment has been set up, it can be activated using ``source
 Install the required libraries in the requirement.txt with  ``pip3 install -r requirements.txt``
 
 Now all needed packages should have been installed into the virtual environment and the scripts can be run.
+
+### Configuration File
+
+All configuration parameters needed for training the model are stored in the ``config.ini`` file located in Training - settings folder.
+Depending on where the training dataset and the cross validation files are stored, adjustments to the file paths are needed.
+
 
 ## Preprocessing
 
