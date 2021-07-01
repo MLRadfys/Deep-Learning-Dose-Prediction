@@ -88,5 +88,8 @@ To use the dose search function, a trained model is loaded, which then predicts 
 To find a similiar dose distribution from the DB for a particular test patient, run the ``dose_search.py`` script using the console: <br>
 ``python3 dose_search.py -id subjectID``
 
+For accelerated computation of the MSE values the script is implemented using multiprocessing. The script automatically uses the maximum number of CPUs available. To change the number of kernels the script can be run by:
+``python3 dose_search.py -id subjectID -cpu numberOfKernels``
+
 
 **Note**: In our current implmentation we assume that the DB contains dose distributions as well as triplet (2.5D) data for all patients, which are used to derive the PTV center coordinates. Storing triplets for all DB subjects is normally not needed, as the PTV center coordinates could be derived prior to the dose search and stored as a numeric value. This should reduce the computational time quite a lot. It should also be noted that the dose_search script might need some minor adaptions, depending on how data is stored.
