@@ -79,6 +79,8 @@ Training and validation processes are written to logfiles during training and ca
 To predict a dose distribution using a trained model, run ``predict.py -id xyz`` from the console, where xyz is the subjectID for which a prediction should be performed.
 To visualize the predicted dose runt ``predict.py -id xyz -v True``.
 
+![plot](./figures/prediction.png)
+
 ### Dose search
 
 In our paper we use the MSE as a similarity measure, to find a dose distribution from a database, that is similar to the predicted dose distribution.
