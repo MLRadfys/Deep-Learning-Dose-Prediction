@@ -88,7 +88,8 @@ To use the dose search function, a trained model is loaded, which then predicts 
 To find a similiar dose distribution from the DB for a particular test patient, run the ``dose_search.py`` script using the console: <br>
 ``python3 dose_search.py -id subjectID``
 
-For accelerated computation of the MSE values the script is implemented using multiprocessing. The script automatically uses the maximum number of CPUs available. To change the number of kernels the script can be run by:
+For accelerated computation of the MSE values the script is implemented using multiprocessing. The script automatically uses the maximum number of CPUs available. <br>
+To change the number of kernels the script can be run by: <br>
 ``python3 dose_search.py -id subjectID -cpu numberOfKernels``
 
 
