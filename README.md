@@ -1,6 +1,8 @@
 # Deep-Learning-Dose-Prediction
 
-This repository contains the code used for our paper "Vmat dose prediction".
+This repository contains the code used for our paper “VMAT dose prediction and deliverable treatment plan generation for prostate cancer patients using a densely connected volumetric deep learning model”. 
+In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training as performed using so called image triplets, which can be considerered as 2.5D data. 
+In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a nearest neighbor (NN) metric.
 
 The repository is split into three different parts:
 
@@ -12,7 +14,7 @@ The different scripts should be run in the given numerical order.
 
 ## Before you start
 
-### Setup
+### Setup and requirements
 
 Clone the repository using Git Bash or the console  ``git clone https://ADRESS_TO_THE_GITHUB_REPOSITORY``. <br>
 
@@ -23,6 +25,8 @@ Once the virtual environment has been set up, it can be activated using ``source
 Install the required libraries in the requirement.txt with  ``pip3 install -r requirements.txt``
 
 Now all needed packages should have been installed into the virtual environment and the scripts can be run.
+
+We recommend to run model training with the NVIDIA driver 450.80.02 and cuDNN CUDA version 10.1, which are the driver versions used and tested.  
 
 ### Configuration File
 
