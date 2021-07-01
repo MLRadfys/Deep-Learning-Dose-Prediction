@@ -85,7 +85,8 @@ In our paper we use the MSE as a similarity measure, to find a dose distribution
 The predicted dose in combination with the closest distribution (accroding to the MSE measure) can then be used to derive new optimization objectives for VMAT treatment planning using a clinical treatment planning system (TPS).
 To use the dose search function, a trained model is loaded, which then predicts a dose distribution based on 2.5D data. This prediction can then be compared to a database of distributions, by first aligning the database dose distributions to the predition and then computing the MSE.
 
-**Note**: In our current implmentation we assume that the DB contains dose distributions as well as triplet (2.5D) data for all patients, which are used to derive the PTV center coordinates. Storing triplets for all DB subjects is normally not needed, as the PTV center coordinates could be derived prior to the dose search and stored as a numeric value. This should reduce the computational time quite a lot.
-
 To find a similiar dose distribution from the DB for a particular test patient, run the ``dose_search.py`` script using the console: <br>
 ``python3 dose_search.py -id subjectID``
+
+
+**Note**: In our current implmentation we assume that the DB contains dose distributions as well as triplet (2.5D) data for all patients, which are used to derive the PTV center coordinates. Storing triplets for all DB subjects is normally not needed, as the PTV center coordinates could be derived prior to the dose search and stored as a numeric value. This should reduce the computational time quite a lot. It should also be noted that the dose_search script might need some minor adaptions, depending on how data is stored.
