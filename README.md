@@ -1,39 +1,37 @@
 # Deep-Learning-Dose-Prediction
 
-This repository contains the code used for our paper “VMAT dose prediction and deliverable treatment plan generation for prostate cancer patients using a densely connected volumetric deep learning model”. 
-In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training as performed using so called image triplets, which can be considerered as 2.5D data. 
+This repository contains the code used for our paper _“VMAT dose prediction and deliverable treatment plan generation for prostate cancer patients using a densely connected volumetric deep learning model”_. <br>
+In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training as performed using so called image triplets, which can be considerered as 2.5D data. <br>
 In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a nearest neighbor (NN) metric.
 
-The repository is split into three different parts:
+The repository contains the following parts:
 
 - **Preprocessing:** generates 2D and 2.5D (triplets) data from 3D volumes
-- **Training:** Provides a densely connected UNet architecture that can be trained for VMAT dose predictions from triplets
-- **NN search:** A script to find a similar dose distribution from a database using the mean squared error as a similarity metric
-
-The different scripts should be run in the given numerical order.
+- **Training:** Provides a densely connected UNet architecture that can be trained for VMAT dose predictions with triplets (2.5D data)
+- **Dose search:** A script to find a similar dose distribution from a database of dose distributions using the mean squared error (MSE) as a similarity metric
 
 ## Before you start
 
 ### Setup and requirements
 
-Clone the repository using Git Bash or the console  ``git clone https://ADRESS_TO_THE_GITHUB_REPOSITORY``. <br>
+- Clone the repository using Git Bash or the console  ``git clone https://ADRESS_TO_THE_GITHUB_REPOSITORY``. <br>
 
-Create a virtual environment by typing ``virtualenv env_name`` into the console.
+- Create a virtual environment by typing ``virtualenv env_name`` into the console.
+  Once the virtual environment has been set up, it can be activated using ``source env_name/bin/activate``
 
-Once the virtual environment has been set up, it can be activated using ``source env_name/bin/activate``
+- Install the required libraries in the requirement.txt with  ``pip3 install -r requirements.txt``
 
-Install the required libraries in the requirement.txt with  ``pip3 install -r requirements.txt``
-
-Now all needed packages should have been installed into the virtual environment and the scripts can be run.
-
-We recommend to run model training with the NVIDIA driver 450.80.02 and cuDNN CUDA version 10.1, which are the driver versions used and tested.  
+Now all needed packages should have been installed into the virtual environment and the scripts can be run. <br>
+We recommend to run model training with the **NVIDIA driver 450.80.02** and **cuDNN CUDA version 10.1**, which are the driver versions used and tested.  
 
 ### Configuration File
 
 All configuration parameters needed for training the model are stored in the ``config.ini`` file located in settings folder.
-**Adjust the path to the dataset and the training/validation split csv file according to your setup.**
+The configuration file must be adjusted, according to the file paths as well as training/validation split files used.
 
-For the configuration file, it is possible to either give a folder name or a specific file.
+#### CSV cross-validation files
+
+When the 2.5D dataset is created, the dataset is automatically split into 5-fold cross validation files. In the configuration file ist is possible to either provide the path to the cross-validation folder folder or a specific file.
 If a .csv file is given, a single model will be trained. If a folder is given, a cross-validation is run, training 5 different models. The .csv files in the folder should follow the naming convention ``d_split_kx.csv``, where x is a number between 0-4.
 
 ## Preprocessing
