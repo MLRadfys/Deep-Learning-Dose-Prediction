@@ -5,7 +5,7 @@ This repository contains the code used for our paper _“VMAT dose prediction an
 
 
 <p align="justify">
-In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training was performed using so called image triplets, which can be considerered as 2.5D data. In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a similarity metric.
+In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients treated with hypofractionated treatment plans (42.7 Gy in seven fractions, three days per week for 2.5 weeks, single arc, 360 degrees). Model training was performed using so called image triplets, which can be considerered as 2.5D data. In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a similarity metric.
 </p>
 
 ![plot](./figures/VMAT_DeepLearning.png)
@@ -46,7 +46,7 @@ The configuration file must be adjusted, according to the file paths as well as 
 #### .csv cross-validation files
 
 <p align="justify">
-When the 2.5D dataset is created, the dataset is automatically split into 5-fold cross validation files. In the configuration file ist is possible to either provide the path to the cross-validation folder folder or a specific file.
+When the 2.5D dataset is created, the dataset is automatically split into 5-fold cross validation files. In the configuration file it is possible to either provide the path to the cross-validation folder folder or a specific file.
 If a .csv file is given, a single model will be trained. If a folder is given, a cross-validation is run, training 5 different models. 
 </p>
 
