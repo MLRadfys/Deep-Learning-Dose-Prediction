@@ -102,7 +102,7 @@ In addition, the script automatically creates csv files used for 5-fold cross va
 To train the model run the ``python3 train.py`` file. Depending on the configuration file, a single model is trained, or a cross-validation performed, resulting in 5 different models.
 Model checkpoints are saved regulary, but this setting can be changed by modifying the ``CustomSaver.py`` script or building a self-defined checkpoint.
 Training and validation processes are written to logfiles during training and can be examined using Tensorboard and can be examined during model training.
-For this, type ``tensorboard --logdir logs/fit`` in the console.
+For this, type ``tensorboard --logdir logs`` in the console.
 
 
 ### Prediction
