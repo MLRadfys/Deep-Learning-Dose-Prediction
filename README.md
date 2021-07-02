@@ -33,7 +33,7 @@ The repository contains the following parts:
 
 
 Now all needed packages should have been installed into the virtual environment and the scripts can be run. <br>
-We recommend to run model training with the **NVIDIA driver 450.80.02** and **cuDNN CUDA version 10.1**, which are the driver versions used and tested.  
+We recommend to run model training with the **NVIDIA driver 450.80.02** and **cuDNN CUDA version 10.0**, which are the driver versions used and tested.  
 
 
 ### Configuration File
