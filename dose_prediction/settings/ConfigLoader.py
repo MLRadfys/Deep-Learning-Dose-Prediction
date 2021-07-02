@@ -54,7 +54,6 @@ class ConfigLoader:
         self.name = None
         self.workers = None
         #[TRAINING]
-        self.CUDA_device = None
         self.n_gpus = None
         self.lr = None
         self.epochs = None
@@ -93,7 +92,6 @@ class ConfigLoader:
             self.name = str(config.get('NETWORK','name'))
             self.workers = int(config.get('NETWORK','workers'))
 
-            self.CUDA_device = str(config.get('TRAINING','CUDA_device'))
             self.n_gpus = int(config.get('TRAINING','n_gpus'))
             self.lr = float(config.get('TRAINING','lr'))
             self.epochs = int(config.get('TRAINING','epochs'))

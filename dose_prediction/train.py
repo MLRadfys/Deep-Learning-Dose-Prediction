@@ -18,6 +18,7 @@
 
 #import libraries
 import os
+
 import keras
 from keras.utils import multi_gpu_model
 import numpy as np
@@ -34,13 +35,21 @@ from settings.ConfigLoader import ConfigLoader
 
 def train():
 
-  
-    os.environ["CUDA_VISIBLE_DEVICES"]="2" # first gpu
-    os.environ["CUDA_VISIBLE_DEVICES"]="3" # second gpu
+    """
 
+    Trains a densely connected U-Net architecture on image triplets
+
+    Inputs:
+        None
+    Returns:
+        None
+
+    """
+
+  
 
     c = ConfigLoader(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'settings/config.ini'))
-    
+
     cross_validation_files = c.csv_file
             
     data_dir_training = data_dir_val = c.data_dir
@@ -73,12 +82,11 @@ def train():
 
         unet = DenseUNet(input_dim, dropout_rate = c.dropout, l2 = c.L2, lr = c.lr)
         model = unet.build_DenseUNet()
-
-        #if c.n_gpus > 1:    
-            #model = multi_gpu_model(model, gpus=c.n_gpus)
         
-        os.makedirs(save_dir, exist_ok=True)
-
+        #Train multi-GPU model
+        if c.n_gpus > 1:    
+            model = multi_gpu_model(model, gpus=c.n_gpus)
+        
         #Set up Model checkpoints
         checkpoints = CustomSaver(save_dir + 'Checkpoints_' + model_name)
         
@@ -107,11 +115,10 @@ def train():
             unet = DenseUNet(input_dim, dropout_rate = c.dropout, l2 = c.L2, lr = c.lr)
             model = unet.build_DenseUNet()
 
-            #if c.n_gpus > 1:    
-                #model = multi_gpu_model(model, gpus=c.n_gpus)
+            #Train multi-GPU model
+            if c.n_gpus > 1:    
+                model = multi_gpu_model(model, gpus=c.n_gpus)
             
-            os.makedirs(save_dir, exist_ok=True)
-
             #Set up Model checkpoints
             checkpoints = CustomSaver(save_dir + 'Checkpoints_' + model_name)
             
