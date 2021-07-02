@@ -1,9 +1,10 @@
 # Deep-Learning-Dose-Prediction
 
+<p style="text-align: center;">
 This repository contains the code used for our paper _“VMAT dose prediction and deliverable treatment plan generation for prostate cancer patients using a densely connected volumetric deep learning model”_. (under review) <br>
 In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training was performed using so called image triplets, which can be considerered as 2.5D data. <br>
 In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a nearest neighbor (NN) metric.
-
+</p>
 ![plot](./figures/VMAT_DeepLearning.png)
 
 The repository contains the following parts:
