@@ -2,9 +2,10 @@
 
 <p style="text-align: center;">
 This repository contains the code used for our paper _“VMAT dose prediction and deliverable treatment plan generation for prostate cancer patients using a densely connected volumetric deep learning model”_. (under review) <br>
-In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training was performed using so called image triplets, which can be considerered as 2.5D data. <br>
-In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a nearest neighbor (NN) metric.
+  
+In our work we used a densely connected convolutional neural network based on a UNet architecture, to predict volumetric modulated arc therapy (VMAT) dose distributions for prostate cancer patients. Model training was performed using so called image triplets, which can be considerered as 2.5D data. In addition, we generated deliverable, optimized treatment plans based on the dose predicions, using a (to our knowledge), novel treatment planning workflow, based on a similarity metric.
 </p>
+
 ![plot](./figures/VMAT_DeepLearning.png)
 
 The repository contains the following parts:
@@ -73,9 +74,11 @@ In addition, the script automatically creates csv files used for 5-fold cross va
 
 ### Training
 
+<p style="text-align: center;">
 To train the model run the ``python3 train.py`` file. Depending on the configuration file, a single model is trained, or a cross-validation performed, resulting in 5 different models.
 Model checkpoints are saved regulary, but this setting can be changed by modifying the ``CustomSaver.py`` script or building a self-defined checkpoint.
 Training and validation processes are written to logfiles during training and can be examined using Tensorboard and can be examined during model training. For this, type ``tensorboard --logdir logs/fit`` in the console.
+</p>
 
 ### Prediction
 
